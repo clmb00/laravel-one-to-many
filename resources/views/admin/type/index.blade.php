@@ -15,7 +15,7 @@
             @csrf
             <div class="input-group mb-3 w-50">
                 <input type="text" class="form-control" name="name" placeholder="New type...">
-                <button class="btn btn-outline-success" type="submit" id="button-addon2">ADD - <i class="fa-solid fa-circle-plus"></i></button>
+                <button class="btn btn-outline-success" type="submit" id="button-addon2"><i class="fa-solid fa-circle-plus"></i>  ADD</button>
             </div>
         </form>
 
@@ -31,16 +31,22 @@
                 @forelse ($types as $type)
                     <tr class="rows">
 
-                        <td>
-                            <form action="{{ route('admin.types.update', $type) }}" method="POST" class="d-flex">
+                        <td class="d-flex">
+                            <form action="{{ route('admin.types.update', $type) }}" method="POST" class="d-flex flex-fill">
                                 @csrf
                                 @method('PATCH')
                                 <input value="{{ $type->name }}" class="form-control border-0 me-2" type="text" name="name" id="name">
-                                <button class="btn btn-warning btn" style="width: 120px" type="submit">EDIT - <i class="fa-solid fa-file-pen"></i></button>
+                                <button class="btn btn-warning me-2" type="submit"><i class="fa-solid fa-file-pen"></i></button>
                             </form>
+
+                            @include('layouts.admin.partials.modal-delete', [
+                                    'route' => 'types',
+                                    'item' => $type
+                                ])
+
                         </td>
 
-                        <td><span class="badge text-bg-dark">{{ count($type->projects) }}</span></td>
+                        <td class="text-center"><span class="badge text-bg-secondary fs-4">{{ count($type->projects) }}</span></td>
 
                     </tr>
                 @empty

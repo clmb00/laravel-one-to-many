@@ -59,7 +59,10 @@
                                 <a class="btn btn-success" href="{{ route('admin.projects.show', $project->slug) }}"><i class="fa-solid fa-circle-info"></i></a>
                                 <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project->slug) }}"><i class="fa-solid fa-file-pen"></i></a>
 
-                                @include('layouts.admin.partials.modal-delete')
+                                @include('layouts.admin.partials.modal-delete', [
+                                    'route' => 'projects',
+                                    'item' => $project
+                                ])
                             </div>
                         </td>
 

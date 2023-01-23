@@ -47,7 +47,10 @@
             <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project->slug) }}"><i class="fa-solid fa-file-pen"></i> Edit</a>
         </div>
         <div class="col-4">
-            @include('layouts.admin.partials.modal-delete')
+            @include('layouts.admin.partials.modal-delete', [
+                                    'route' => 'projects',
+                                    'item' => $project
+                                ])
         </div>
     </div>
 
