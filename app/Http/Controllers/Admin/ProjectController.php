@@ -108,10 +108,10 @@ class ProjectController extends Controller
      */
     public function edit($slug)
     {
-
+        $types = Type::all();
         $project = Project::where('slug', $slug)->first();
 
-        return view('admin.project.edit', compact('project'));
+        return view('admin.project.edit', compact(['project', 'types']));
     }
 
     /**
