@@ -32,7 +32,7 @@
                 <th scope="col">Actions</th>
               </tr>
             </thead>
-            <tbody class="table-hover">
+            <tbody>
 
                 @forelse ($projects as $project)
                     <tr class="rows">

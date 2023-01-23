@@ -53,8 +53,8 @@
 
                 <div class="card-body">
                     <ul>
-                        <li>upload image</li>
                         <li>edit to do</li>
+                        <li>crude type</li>
                     </ul>
                 </div>
             </div>
