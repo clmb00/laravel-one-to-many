@@ -34,6 +34,15 @@
                     </div>
                 @enderror
             </div>
+            <div class="mb-3 w-25">
+                <label for="type_id" class="form-label">Project type</label>
+                <select class="form-select" id="type_id" name="type_id">
+                    <option value="">Select type of project</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" @if($type->id == old('type_id')) selected  @endif >{{ $type->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="mb-3">
                 <label for="cover_image" class="form-label">Cover image</label>
                 <input type="file" class="form-control @error('cover_image') is-invalid @enderror" id="cover_image" name="cover_image" value="{{old('cover_image')}}" onchange="showImage(event)">

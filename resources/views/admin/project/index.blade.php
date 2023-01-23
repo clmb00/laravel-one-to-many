@@ -33,21 +33,27 @@
               </tr>
             </thead>
             <tbody class="table-hover">
+
                 @forelse ($projects as $project)
                     <tr class="rows">
+
                         <td>{{ $project->id }}</td>
+
                         <td>
                             {{ $project->name }}<br>
                             <div style="text-align: right">
-                                <span class="badge rounded-pill text-bg-success">{{ $project->type->name }}</span>
+                                <span class="badge rounded-pill text-bg-success">{{ $project->type?->name }}</span>
                             </div>
                         </td>
+
                         <td>{{ $project->client_name }}</td>
+
                         <td>
                             <div style="height: 50px; overflow:auto;">
                                 {!! $project->summary !!}
                             </div>
                         </td>
+
                         <td>
                             <div class="d-flex gap-2 align-items-center" style="height: 50px">
                                 <a class="btn btn-success" href="{{ route('admin.projects.show', $project->slug) }}"><i class="fa-solid fa-circle-info"></i></a>
@@ -56,10 +62,12 @@
                                 @include('layouts.admin.partials.modal-delete')
                             </div>
                         </td>
+
                     </tr>
                 @empty
                     <h5>No Projects Found</h5>
                 @endforelse
+
             </tbody>
           </table>
 
