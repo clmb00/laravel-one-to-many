@@ -11,6 +11,14 @@
             </div>
         @endif
 
+        <form action="{{ route('admin.types.store') }}" method="POST">
+            @csrf
+            <div class="input-group mb-3 w-50">
+                <input type="text" class="form-control" name="name" placeholder="New type...">
+                <button class="btn btn-outline-success" type="submit" id="button-addon2">ADD - <i class="fa-solid fa-circle-plus"></i></button>
+            </div>
+        </form>
+
         <table class="table table-bordered w-50" style="border-color:rgba(71, 37, 95, 0.4);">
             <thead class="text-white" style="background-color: rgba(71, 37, 95, 0.6);">
               <tr>
