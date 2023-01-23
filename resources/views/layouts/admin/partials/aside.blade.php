@@ -23,6 +23,12 @@
         </div>
         <div class="d-flex gap-1" style="width: 80%;">
             <li class="nav-item btn btn-outline-light btn-lg w-100">
+                <a class="nav-link" href="{{ route('admin.project_type') }}"><i class="fa-solid fa-link"></i></a>
+                <a class="nav-link" href="{{ route('admin.project_type') }}">Projects - Type</a>
+            </li>
+        </div>
+        <div class="d-flex gap-1" style="width: 80%;">
+            <li class="nav-item btn btn-outline-light btn-lg w-100">
                 <a class="nav-link" href="{{ url('/admin/profile') }}"><i class="fa-solid fa-user"></i></a>
                 <a class="nav-link" href="{{ url('/admin/profile') }}">Profile</a>
             </li>

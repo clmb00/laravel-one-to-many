@@ -6,6 +6,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectRequest;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 use function PHPUnit\Framework\isNull;
@@ -39,6 +40,12 @@ class ProjectController extends Controller
         $projects = Project::orderBy($column, $direction)->get();
         $active_order = $column;
         return view('admin.project.index', compact('projects', 'direction', 'active_order'));
+    }
+
+    public function project_type()
+    {
+        $types = Type::all();
+        return view('admin.project.project_type', compact('types'));
     }
 
     /**
