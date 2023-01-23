@@ -13,7 +13,7 @@
         <table class="table table-striped table-hover table-bordered" style="border-color:rgba(71, 37, 95, 0.4);">
             <thead class="text-white" style="background-color: rgba(71, 37, 95, 0.6);">
               <tr>
-                <th scope="col" class="text-decoration-underline">
+                <th scope="col" class="text-decoration-underline" style="min-width: 60px">
                     <a class="nav-link" href="{{ route('admin.projects.orderby', ['column'=>'id', 'direction'=>$direction]) }}">
                         ID @if ($active_order == 'id') @if ($direction == 'desc') <i class='fa-solid fa-chevron-up'></i> @else <i class="fa-solid fa-chevron-down"></i> @endif @endif
                     </a>
@@ -35,8 +35,13 @@
             <tbody class="table-hover">
                 @forelse ($projects as $project)
                     <tr class="rows">
-                        <td style="min-width: 60px">{{ $project->id }}</td>
-                        <td>{{ $project->name }}</td>
+                        <td>{{ $project->id }}</td>
+                        <td>
+                            {{ $project->name }}<br>
+                            <div style="text-align: right">
+                                <span class="badge rounded-pill text-bg-success">{{ $project->type->name }}</span>
+                            </div>
+                        </td>
                         <td>{{ $project->client_name }}</td>
                         <td>
                             <div style="height: 50px; overflow:auto;">
